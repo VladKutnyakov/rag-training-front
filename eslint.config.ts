@@ -22,5 +22,8 @@ export default defineConfig([
         parser: tseslint.parser,
       },
     },
+    rules: {
+      'vue/multi-word-component-names': ['off'],
+    },
   },
 ])
