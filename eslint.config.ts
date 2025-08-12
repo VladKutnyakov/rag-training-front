@@ -14,7 +14,7 @@ export default defineConfig([
   },
   stylistic.configs.recommended,
   tseslint.configs.recommended,
-  pluginVue.configs['flat/essential'],
+  pluginVue.configs['flat/recommended'],
   {
     files: ['**/*.vue'],
     languageOptions: {

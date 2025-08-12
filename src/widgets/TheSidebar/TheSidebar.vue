@@ -1,0 +1,74 @@
+<template>
+  <div class="sidebar">
+    <FileUpload>
+      <template #header="{ chooseCallback, files }">
+        <div class="file-header-button">
+          <Button
+            icon="pi pi-upload"
+            severity="primary"
+            variant="outlined"
+            @click="chooseCallback"
+          />
+        </div>
+      </template>
+      <template #content="{ files, uploadedFiles, removeUploadedFileCallback, removeFileCallback, messages }">
+        <div
+          v-for="(file, index) in files"
+          :key="index"
+          class="file-content-name"
+        >
+          {{ file.name }}
+        </div>
+      </template>
+      <template #empty>
+        <div class="file-empty-message">
+          Перетащите файл
+        </div>
+      </template>
+    </FileUpload>
+  </div>
+</template>
+
+<script setup lang="ts">
+import FileUpload from 'primevue/fileupload'
+import Button from 'primevue/button'
+</script>
+
+<style scoped>
+.sidebar {
+  height: 100%;
+  padding: 12px;
+  background-color: #d8d8d8;
+}
+
+.sidebar :deep(.p-fileupload-header) {
+  padding: 0;
+}
+
+.sidebar :deep(.p-fileupload-content) {
+  padding: 1.125rem;
+}
+
+.file-header-button {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.file-header-button .p-button {
+  width: 100%;
+}
+
+.file-content-name {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: initial;
+}
+
+.file-empty-message {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+</style>
