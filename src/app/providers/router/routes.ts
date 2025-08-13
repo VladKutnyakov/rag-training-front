@@ -5,6 +5,11 @@ export const routes = [
     component: () => import('@pages/home'),
   },
   {
+    path: '/document/:id',
+    name: 'document',
+    component: () => import('@pages/home'),
+  },
+  {
     path: '/:pathMatch(.*)',
     component: () => import('@pages/not-found'),
   },

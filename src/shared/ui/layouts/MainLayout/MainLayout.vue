@@ -12,11 +12,12 @@
 <style>
 .main-layout {
   display: grid;
-  grid-template-columns: 20% 80%;
+  grid-template-columns: 2fr 8fr;
+  gap: 2rem;
   min-height: 100vh;
 }
 
 .layout-main {
-  padding: 12px;
+  padding: 1rem;
 }
 </style>
