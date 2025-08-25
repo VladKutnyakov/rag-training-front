@@ -2,7 +2,7 @@
   <RouterLink
     class="document-item"
     :class="{ 'document-item__active': isActive }"
-    :to="{ name: 'document', params: { id: document.id } }"
+    :to="{ name: 'chat', params: { id: document.id } }"
   >
     <div class="extension">
       {{ document.extension }}

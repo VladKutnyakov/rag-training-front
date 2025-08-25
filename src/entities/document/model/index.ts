@@ -1,5 +1,1 @@
-export interface DocumentDto {
-  id: number
-  name: string
-  extension: string | null
-}
+export type { DocumentDto } from './types'

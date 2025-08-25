@@ -1,7 +1,12 @@
 <template>
   <div class="sidebar">
     <div class="company">
-      Rag training
+      <RouterLink
+        class="link"
+        :to="{ name: 'home' }"
+      >
+        Rag training
+      </RouterLink>
     </div>
     <FileUpload>
       <template #header="{ chooseCallback, files }">
@@ -31,11 +36,11 @@
     </FileUpload>
 
     <div class="document-list">
-      <DocumentItem
+      <DocumentLink
         v-for="item in documents"
         :key="item.id"
         :document="item"
-        :is-active="getDocumentIsActive(item)"
+        :is-active="getDocumentLinkIsActive(item)"
       />
     </div>
   </div>
@@ -45,15 +50,15 @@
 import FileUpload from 'primevue/fileupload'
 import Button from 'primevue/button'
 import { onMounted, ref } from 'vue'
-import { DocumentItem, getDocuments, type DocumentDto } from '@/entities/document'
+import { DocumentLink, getDocuments, type DocumentDto } from '@/entities/document'
 import { useRoute } from 'vue-router'
 
 const route = useRoute()
 
 const documents = ref<DocumentDto[]>([])
 
-function getDocumentIsActive(doc: DocumentDto) {
-  return (route.name === 'document' && Number(route.params.id) === doc.id)
+function getDocumentLinkIsActive(doc: DocumentDto) {
+  return (route.name === 'chat' && Number(route.params.id) === doc.id)
 }
 
 onMounted(() => {
@@ -72,6 +77,11 @@ onMounted(() => {
   padding: 0 0 1rem 0;
   font-size: 1.5rem;
   text-transform: lowercase;
+}
+
+.company .link {
+  text-decoration: none;
+  color: unset;
 }
 
 .sidebar :deep(.p-fileupload-header) {

@@ -5,9 +5,9 @@ export const routes = [
     component: () => import('@pages/home'),
   },
   {
-    path: '/document/:id',
-    name: 'document',
-    component: () => import('@pages/home'),
+    path: '/chat/:id',
+    name: 'chat',
+    component: () => import('@/pages/chat'),
   },
   {
     path: '/:pathMatch(.*)',

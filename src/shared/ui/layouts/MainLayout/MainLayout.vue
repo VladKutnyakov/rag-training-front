@@ -9,7 +9,7 @@
   </div>
 </template>
 
-<style>
+<style scoped>
 .main-layout {
   display: grid;
   grid-template-columns: 2fr 8fr;
