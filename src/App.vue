@@ -13,7 +13,7 @@
 import { computed } from 'vue'
 import { useRoute } from 'vue-router'
 import MainLayout from '@shared/ui/layouts/MainLayout'
-import TheSidebar from '@widgets/TheSidebar'
+import TheSidebar from '@/widgets/the-sidebar'
 
 const route = useRoute()
 

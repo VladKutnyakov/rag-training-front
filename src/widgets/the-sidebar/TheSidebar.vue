@@ -43,15 +43,21 @@
         :is-active="getDocumentLinkIsActive(item)"
       />
     </div>
+
+    <Button
+      :icon="themeIcon"
+      @click="toggleDarkMode()"
+    />
   </div>
 </template>
 
 <script setup lang="ts">
 import FileUpload from 'primevue/fileupload'
 import Button from 'primevue/button'
-import { onMounted, ref } from 'vue'
+import { computed, onMounted, ref } from 'vue'
 import { DocumentLink, getDocuments, type DocumentDto } from '@/entities/document'
 import { useRoute } from 'vue-router'
+import { useColorMode } from '@vueuse/core'
 
 const route = useRoute()
 
@@ -61,6 +67,22 @@ function getDocumentLinkIsActive(doc: DocumentDto) {
   return (route.name === 'chat' && Number(route.params.id) === doc.id)
 }
 
+const mode = useColorMode()
+
+const themeIcon = computed(() => {
+  switch (mode.value) {
+    case 'light':
+      return 'pi pi-sun'
+    case 'dark':
+      return 'pi pi-moon'
+  }
+  return undefined
+})
+
+function toggleDarkMode() {
+  mode.value = mode.value === 'light' ? 'dark' : 'light'
+}
+
 onMounted(() => {
   documents.value = getDocuments()
 })
@@ -68,6 +90,8 @@ onMounted(() => {
 
 <style scoped>
 .sidebar {
+  display: flex;
+  flex-direction: column;
   height: 100%;
   padding: 1rem;
   background-color: #d8d8d8;

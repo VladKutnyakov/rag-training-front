@@ -2,7 +2,7 @@ export const routes = [
   {
     path: '/',
     name: 'home',
-    component: () => import('@pages/home'),
+    component: () => import('@/pages/home'),
   },
   {
     path: '/chat/:id',
@@ -11,6 +11,6 @@ export const routes = [
   },
   {
     path: '/:pathMatch(.*)',
-    component: () => import('@pages/not-found'),
+    component: () => import('@/pages/not-found'),
   },
 ]
