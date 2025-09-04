@@ -1,3 +1,3 @@
-import TheSidebar from './TheSidebar.vue'
+import TheSidebar from './ui/TheSidebar.vue'
 
 export default TheSidebar

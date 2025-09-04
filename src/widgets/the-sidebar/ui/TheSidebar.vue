@@ -9,7 +9,7 @@
       </RouterLink>
     </div>
     <FileUpload>
-      <template #header="{ chooseCallback, files }">
+      <template #header="{ chooseCallback }">
         <div class="file-header-button">
           <Button
             icon="pi pi-upload"
@@ -19,7 +19,7 @@
           />
         </div>
       </template>
-      <template #content="{ files, uploadedFiles, removeUploadedFileCallback, removeFileCallback, messages }">
+      <template #content="{ files }">
         <div
           v-for="(file, index) in files"
           :key="index"
@@ -44,20 +44,17 @@
       />
     </div>
 
-    <Button
-      :icon="themeIcon"
-      @click="toggleDarkMode()"
-    />
+    <ThemeSwitcher />
   </div>
 </template>
 
 <script setup lang="ts">
 import FileUpload from 'primevue/fileupload'
 import Button from 'primevue/button'
-import { computed, onMounted, ref } from 'vue'
+import { ThemeSwitcher } from '@/features/theme-switcher'
+import { onMounted, ref } from 'vue'
 import { DocumentLink, getDocuments, type DocumentDto } from '@/entities/document'
 import { useRoute } from 'vue-router'
-import { useColorMode } from '@vueuse/core'
 
 const route = useRoute()
 
@@ -65,22 +62,6 @@ const documents = ref<DocumentDto[]>([])
 
 function getDocumentLinkIsActive(doc: DocumentDto) {
   return (route.name === 'chat' && Number(route.params.id) === doc.id)
-}
-
-const mode = useColorMode()
-
-const themeIcon = computed(() => {
-  switch (mode.value) {
-    case 'light':
-      return 'pi pi-sun'
-    case 'dark':
-      return 'pi pi-moon'
-  }
-  return undefined
-})
-
-function toggleDarkMode() {
-  mode.value = mode.value === 'light' ? 'dark' : 'light'
 }
 
 onMounted(() => {
