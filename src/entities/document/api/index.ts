@@ -4,12 +4,12 @@ export const getDocuments = (): DocumentDto[] => {
   return [
     {
       id: 0,
-      name: 'Test chat 1',
+      name: 'Document1 chat',
       extension: '.docx',
     },
     {
       id: 1,
-      name: 'Test chat 2',
+      name: 'ReportDoc',
       extension: '.pdf',
     },
   ]

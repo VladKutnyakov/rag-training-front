@@ -4,11 +4,11 @@
     :class="{ 'document-item__active': isActive }"
     :to="{ name: 'chat', params: { id: document.id } }"
   >
-    <div class="extension">
-      {{ document.extension }}
-    </div>
     <div class="name">
       {{ document.name }}
+    </div>
+    <div class="extension">
+      {{ document.extension }}
     </div>
   </RouterLink>
 </template>
@@ -25,7 +25,7 @@ defineProps<{
 <style scoped>
 .document-item {
   display: flex;
-  padding: 0.5rem 0.25rem;
+  padding: 0.5rem;
   text-decoration: unset;
   color: initial;
   border-radius: 0.5rem;
@@ -34,14 +34,15 @@ defineProps<{
 .document-item:hover,
 .document-item:focus {
   cursor: pointer;
-  outline: 1px solid black;
+  outline: 1px solid var(--p-document-hover-background);
+  background-color: var(--p-document-hover-background);
 }
 
-.document-item__active {
-  background-color: #7d7d7d;
+.document-item.document-item__active {
+  background-color: var(--p-document-background);
 }
 
-.extension {
-  width: 3rem;
+.name {
+  flex: 100% 1 1;
 }
 </style>

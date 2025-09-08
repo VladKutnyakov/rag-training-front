@@ -9,7 +9,7 @@ export const getMessages = (): MessageDto[] => {
     },
     {
       id: 1,
-      text: 'Test chat 2',
+      text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer et rutrum nisi. Etiam accumsan ante sit amet aliquet facilisis. Aliquam erat volutpat. Nunc egestas egestas diam non fringilla. Sed eget enim non tellus iaculis euismod ut non felis. Maecenas porttitor lacus a dignissim ultricies. Ut volutpat augue odio, at auctor lectus porttitor varius. Vivamus vestibulum, dui eget dictum rhoncus, mi diam pulvinar sapien, in tincidunt tellus diam at libero. In ut dapibus mi.',
       type: 'RECIEVED',
     },
     {

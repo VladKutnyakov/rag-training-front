@@ -19,3 +19,11 @@ const route = useRoute()
 
 const layout = computed(() => route.meta.layout || MainLayout)
 </script>
+
+<style>
+@import '@/shared/assets/styles/fonts.css';
+
+#app {
+  font-family: "Roboto", sans-serif;
+}
+</style>

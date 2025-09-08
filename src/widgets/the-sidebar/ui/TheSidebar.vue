@@ -5,35 +5,17 @@
         class="link"
         :to="{ name: 'home' }"
       >
-        Rag training
+        Rag
       </RouterLink>
     </div>
-    <FileUpload>
-      <template #header="{ chooseCallback }">
-        <div class="file-header-button">
-          <Button
-            icon="pi pi-upload"
-            severity="primary"
-            variant="outlined"
-            @click="chooseCallback"
-          />
-        </div>
-      </template>
-      <template #content="{ files }">
-        <div
-          v-for="(file, index) in files"
-          :key="index"
-          class="file-content-name"
-        >
-          {{ file.name }}
-        </div>
-      </template>
-      <template #empty>
-        <div class="file-empty-message">
-          Перетащите файл
-        </div>
-      </template>
-    </FileUpload>
+
+    <div class="new-chat">
+      <Button
+        label="Новый чат"
+        icon="pi pi-plus"
+        @click="createChat"
+      />
+    </div>
 
     <div class="document-list">
       <DocumentLink
@@ -44,12 +26,13 @@
       />
     </div>
 
-    <ThemeSwitcher />
+    <div class="theme-switcher">
+      <ThemeSwitcher />
+    </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import FileUpload from 'primevue/fileupload'
 import Button from 'primevue/button'
 import { ThemeSwitcher } from '@/features/theme-switcher'
 import { onMounted, ref } from 'vue'
@@ -64,6 +47,10 @@ function getDocumentLinkIsActive(doc: DocumentDto) {
   return (route.name === 'chat' && Number(route.params.id) === doc.id)
 }
 
+function createChat() {
+  //
+}
+
 onMounted(() => {
   documents.value = getDocuments()
 })
@@ -75,55 +62,34 @@ onMounted(() => {
   flex-direction: column;
   height: 100%;
   padding: 1rem;
-  background-color: #d8d8d8;
+  background-color: var(--p-sidebar-background);
 }
 
 .company {
-  padding: 0 0 1rem 0;
+  padding: 0.5rem 0 2rem 0;
   font-size: 1.5rem;
-  text-transform: lowercase;
 }
 
 .company .link {
+  font-weight: bold;
   text-decoration: none;
   color: unset;
 }
 
-.sidebar :deep(.p-fileupload-header) {
-  padding: 0;
-}
-
-.sidebar :deep(.p-fileupload-content) {
-  padding: 1.125rem;
-}
-
-.file-header-button {
+.new-chat .p-button {
   width: 100%;
-  display: flex;
-  justify-content: center;
-}
-
-.file-header-button .p-button {
-  width: 100%;
-}
-
-.file-content-name {
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  line-height: initial;
-}
-
-.file-empty-message {
-  display: flex;
-  justify-content: center;
-  text-align: center;
 }
 
 .document-list {
   display: flex;
+  flex: 100% 1 1;
   flex-direction: column;
   gap: 0.25rem;
   padding: 1rem 0 0 0;
+}
+
+.theme-switcher {
+  display: flex;
+  justify-content: end;
 }
 </style>

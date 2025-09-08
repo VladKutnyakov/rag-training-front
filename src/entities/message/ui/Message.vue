@@ -40,10 +40,6 @@ defineProps<{
 }
 
 .message.sent .text {
-  background-color: #e7ffd3;
-}
-
-.message.recieved .text {
-  background-color: #d3d3d3;
+  background-color: var(--p-message-sent-background);
 }
 </style>
