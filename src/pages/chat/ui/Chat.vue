@@ -27,7 +27,7 @@ import Textarea from 'primevue/textarea'
 import Button from 'primevue/button'
 import { onMounted, ref, useTemplateRef, type ComponentPublicInstance } from 'vue'
 import { useEventListener, useFocus } from '@vueuse/core'
-import { Message, getMessages, type MessageDto } from '@/entities/message'
+import { Message, getMessages, type MessageDto } from '@entities/message'
 
 const messages = ref<MessageDto[]>([])
 const newMessage = ref('')

@@ -34,9 +34,9 @@
 
 <script setup lang="ts">
 import Button from 'primevue/button'
-import { ThemeSwitcher } from '@/features/theme-switcher'
+import { ThemeSwitcher } from '@features/theme-switcher'
 import { onMounted, ref } from 'vue'
-import { DocumentLink, getDocuments, type DocumentDto } from '@/entities/document'
+import { DocumentLink, getDocuments, type DocumentDto } from '@entities/document'
 import { useRoute } from 'vue-router'
 
 const route = useRoute()

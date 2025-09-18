@@ -6,6 +6,9 @@ import Aura from '@primeuix/themes/aura'
 import 'primeicons/primeicons.css'
 import './reset.css'
 import { definePreset } from '@primeuix/themes'
+import { createZod } from './shared/config'
+
+createZod()
 
 const AuraCustomPreset = definePreset(Aura, {
   semantic: {
